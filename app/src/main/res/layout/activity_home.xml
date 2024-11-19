@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Imagem de fundo -->
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_home"
+        android:scaleType="centerCrop" />
+
+
+    <ImageView
+        android:layout_width="301dp"
+        android:layout_height="223dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:contentDescription="@null"
+        android:src="@drawable/logo_branco" />
+
+    <!-- Título principal -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se Liga aí para não gastar energia!"
+        android:textAlignment="center"
+        android:textSize="44sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp" />
+
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Controle seu consumo, reduza suas emissões e faça a diferença pelo planeta."
+        android:textSize="21sp"
+        android:layout_margin="9dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Botão de Login -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="383dp"
+        android:layout_height="57dp"
+        android:background="@drawable/button_border_dois"
+        android:text="Entrar"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:layout_below="@id/subtitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:onClick="goToLogin"/>
+
+    <!-- Botão de Inscreva-se -->
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="383dp"
+        android:layout_height="57dp"
+        android:background="@drawable/button_border"
+        android:text="Inscreva-se"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="goToSignup"/>
+
+
+</RelativeLayout>
