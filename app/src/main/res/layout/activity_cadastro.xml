@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Barra de título com seta para voltar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:gravity="start|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Voltar"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+
+        <!-- Título centralizado -->
+        <TextView
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Inscreva-se"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <!-- Campo de email -->
+
+    <!-- Campo de senha -->
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:hint="Nome Completo"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/edtUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:hint="Nome de usuário"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:hint="Senha (mais de 8 caracteres)"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edtCnpj"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:hint="CNPJ"
+        android:inputType="number"
+        android:padding="12dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Link de Esqueceu a senha -->
+
+    <!-- Botão de Entrar -->
+    <Button
+        android:id="@+id/btnIncrever"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Increva-se"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ao se cadastrar, você concorda com os Termos de Uso e Política de Privacidade do TáLigado"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:layout_margin="30dp"/>
+
+
+</LinearLayout>
