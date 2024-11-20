@@ -4,8 +4,12 @@ import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taligado.R
+import com.example.taligado.activity.dialogs.CadastroDialog
+
+import com.example.taligado.activity.dialogs.LoginDialog
 
 
 class HomeActivity : AppCompatActivity() {
@@ -18,15 +22,22 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // Para Android 11 (API 30) ou superior
             window.insetsController?.hide(WindowInsets.Type.statusBars())
         } else {
-            // Para versões anteriores
             @Suppress("DEPRECATION")
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
+        }
+        val btnLogin = findViewById<Button>(R.id.btnLogin)
+        btnLogin.setOnClickListener {
+            LoginDialog(this).show()
+        }
+
+        val btnSignup = findViewById<Button>(R.id.btnSignup)
+        btnSignup.setOnClickListener {
+            CadastroDialog(this).show()
         }
     }
 }
