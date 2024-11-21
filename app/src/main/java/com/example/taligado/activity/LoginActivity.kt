@@ -1,5 +1,6 @@
 package com.example.taligado.activity
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
@@ -42,7 +43,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnEntrar.setOnClickListener {
-            // Lógica de login
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
         }
     }
 }
