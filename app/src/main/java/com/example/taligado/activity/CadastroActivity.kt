@@ -58,15 +58,7 @@ class CadastroActivity : AppCompatActivity() {
         }
 
         btnInscrever.setOnClickListener {
-            // Testa a conexão antes de tentar o cadastro
-            testarConexao { isConnected ->
-                if (isConnected) {
-                    cadastrarUsuario()
-                } else {
-                    // Se não houver conexão, notifica o usuário
-                    Toast.makeText(this, "Sem conexão com a internet.", Toast.LENGTH_SHORT).show()
-                }
-            }
+            cadastrarUsuario()
         }
     }
 
@@ -107,9 +99,5 @@ class CadastroActivity : AppCompatActivity() {
         else if (senha.isEmpty()) senhaEditText.requestFocus()
         else if (cnpj.isEmpty()) cnpjEditText.requestFocus()
     }
-
-    private fun testarConexao(callback: (Boolean) -> Unit) {
-        val isConnected = true // Implemente sua lógica de verificação de conexão
-        callback(isConnected)
-    }
 }
+

@@ -38,6 +38,7 @@ android {
 
 dependencies {
 
+    implementation(libs.play.services.maps)
     val lifecycle_version = "2.8.5"
 
     implementation(libs.androidx.core.ktx)
@@ -52,6 +53,8 @@ dependencies {
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation ("com.google.android.gms:play-services-maps:18.0.2")
+    implementation ("com.github.bumptech.glide:glide:4.13.2")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

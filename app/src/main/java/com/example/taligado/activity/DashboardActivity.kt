@@ -19,15 +19,12 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        // Esconde a ActionBar
         supportActionBar?.hide()
 
-        // Configura o BottomNavigationView
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav)
         bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    // Remove qualquer fragmento e exibe o layout da DashboardActivity
                     supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 
                     findViewById<ScrollView>(R.id.dashboard_content).visibility = View.VISIBLE

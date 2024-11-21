@@ -65,71 +65,40 @@ class UsuarioViewModel : ViewModel() {
         })
     }
 
-    fun testarConexao(callback: (Boolean) -> Unit) {
+    fun cadastrarUsuario(usuario: Usuario, callback: CadastroCallback) {
+        val usuarioComId = if (usuario.id.isEmpty()) {
+            usuario.copy(id = gerarIdUnico())
+        } else {
+            usuario
+        }
+
+        val usuarioJson = gson.toJson(usuarioComId)
+        val requestBody = usuarioJson.toRequestBody("application/json".toMediaType())
         val request = Request.Builder()
-            .url("https://taligado-mobile-default-rtdb.firebaseio.com/.json")  // Um endpoint simples do Firebase
-            .get()
+            .url("$baseURL/usuarios/${usuarioComId.id}.json")
+            .put(requestBody)
             .build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("UsuarioViewModel", "Falha ao testar conexão: ${e.message}", e)
-                callback(false)  // A conexão falhou
+                Log.e("UsuarioViewModel", "Falha ao cadastrar usuário: ${e.message}", e)
+                handler.post { callback.onFailure() }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful) {
-                    Log.d("UsuarioViewModel", "Conexão bem-sucedida com Firebase.")
-                    callback(true)  // Conexão bem-sucedida
+                    Log.d("UsuarioViewModel", "Usuário cadastrado com sucesso.")
+                    handler.post { callback.onSuccess() }
                 } else {
-                    Log.e("UsuarioViewModel", "Falha na conexão: Código de resposta: ${response.code}")
-                    callback(false)  // Código de resposta não bem-sucedido
+                    Log.e(
+                        "UsuarioViewModel",
+                        "Falha ao cadastrar usuário. Código de resposta: ${response.code}, Mensagem: ${response.message}"
+                    )
+                    handler.post { callback.onFailure() }
                 }
             }
         })
     }
-
-
-    fun cadastrarUsuario(usuario: Usuario, callback: CadastroCallback) {
-        // Teste de conexão antes de tentar cadastrar o usuário
-        testarConexao { sucesso ->
-            if (sucesso) {
-                val usuarioComId = if (usuario.id.isEmpty()) {
-                    usuario.copy(id = gerarIdUnico())
-                } else {
-                    usuario
-                }
-
-                val usuarioJson = gson.toJson(usuarioComId)
-                val requestBody = usuarioJson.toRequestBody("application/json".toMediaType())
-                val request = Request.Builder()
-                    .url("$baseURL/usuarios/${usuarioComId.id}.json")
-                    .put(requestBody)
-                    .build()
-
-                client.newCall(request).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
-                        Log.e("UsuarioViewModel", "Falha ao cadastrar usuário: ${e.message}", e)
-                        handler.post { callback.onFailure() }
-                    }
-
-                    override fun onResponse(call: Call, response: Response) {
-                        if (response.isSuccessful) {
-                            Log.d("UsuarioViewModel", "Usuário cadastrado com sucesso.")
-                            handler.post { callback.onSuccess() }
-                        } else {
-                            Log.e("UsuarioViewModel", "Falha ao cadastrar usuário. Código de resposta: ${response.code}, Mensagem: ${response.message}")
-                            handler.post { callback.onFailure() }
-                        }
-                    }
-                })
-            } else {
-                Log.e("Cadastro", "Falha de conexão. Não é possível cadastrar usuário.")
-                handler.post { callback.onFailure() } // Avisar que não foi possível cadastrar
-            }
-        }
-    }
-
 
     private fun gerarIdUnico(): String {
         return "user_${System.currentTimeMillis()}"

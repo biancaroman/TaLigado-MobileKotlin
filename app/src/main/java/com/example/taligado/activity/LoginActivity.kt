@@ -47,11 +47,11 @@ class LoginActivity : AppCompatActivity() {
         val txtEsqueceuSenha = findViewById<TextView>(R.id.txtEsqueceuSenha)
 
         btnBack.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed() // Método recomendado
+            onBackPressedDispatcher.onBackPressed()
         }
 
         txtEsqueceuSenha.setOnClickListener {
-            // Adicione aqui a lógica para lidar com a recuperação de senha
+            // lógica para lidar com a recuperação de senha
         }
 
         btnEntrar.setOnClickListener {
@@ -59,37 +59,25 @@ class LoginActivity : AppCompatActivity() {
             val password = edtSenha.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                // Testa a conexão antes de tentar o login
-                testarConexao { isConnected ->
-                    if (isConnected) {
-                        // Se a conexão for bem-sucedida, realiza o login
-                        usuarioViewModel.login(email, password, this, object : LoginCallback {
-                            override fun onSuccess() {
-                                runOnUiThread {
-                                    Log.d("LoginActivity", "Login realizado com sucesso!")
-                                    Toast.makeText(this@LoginActivity, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
-
-                                    val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                }
-                            }
-
-                            override fun onFailure() {
-                                runOnUiThread {
-                                    Log.e("LoginActivity", "Falha no login. Credenciais inválidas.")
-                                    Toast.makeText(this@LoginActivity, "Falha no login. Verifique suas credenciais.", Toast.LENGTH_LONG).show()
-                                }
-                            }
-                        })
-                    } else {
-                        // Se não houver conexão, notifica o usuário
+                usuarioViewModel.login(email, password, this, object : LoginCallback {
+                    override fun onSuccess() {
                         runOnUiThread {
-                            Log.e("LoginActivity", "Sem conexão com a internet.")
-                            Toast.makeText(this@LoginActivity, "Sem conexão com a internet.", Toast.LENGTH_LONG).show()
+                            Log.d("LoginActivity", "Login realizado com sucesso!")
+                            Toast.makeText(this@LoginActivity, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
+
+                            val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         }
                     }
-                }
+
+                    override fun onFailure() {
+                        runOnUiThread {
+                            Log.e("LoginActivity", "Falha no login. Credenciais inválidas.")
+                            Toast.makeText(this@LoginActivity, "Falha no login. Verifique suas credenciais.", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                })
             } else {
                 runOnUiThread {
                     Log.d("LoginActivity", "Campos de email ou senha não preenchidos.")
@@ -97,10 +85,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun testarConexao(callback: (Boolean) -> Unit) {
-        val isConnected = true // Implemente sua lógica de verificação de conexão
-        callback(isConnected)
     }
 }
