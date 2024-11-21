@@ -21,6 +21,7 @@
             android:id="@+id/imgFilial"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:contentDescription="@string/todo"
             android:scaleType="centerCrop"/>
 
         <!-- Nome da filial -->
@@ -28,7 +29,8 @@
             android:id="@+id/txtNomeFilial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome da Filial"
+            android:text="@string/nome_da_filial"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_marginTop="8dp"/>
 
@@ -37,7 +39,7 @@
             android:id="@+id/btnMaisInformacoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mais Informações +"
+            android:text="@string/mais_informacoes"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginTop="8dp"/>

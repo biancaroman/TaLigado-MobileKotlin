@@ -1,4 +1,4 @@
-package com.example.taligado.viewmodel
+package com.example.taligado.viewModel
 
 import android.os.Handler
 import android.os.Looper
@@ -12,44 +12,42 @@ import java.io.IOException
 
 class FilialViewModel : ViewModel() {
 
-        private val baseURL = "https://taligado-mobile-default-rtdb.firebaseio.com/filiais"
-        private val client = OkHttpClient()
-        private val gson = Gson()
-        private val handler = Handler(Looper.getMainLooper())
+    private val baseURL = "https://taligado-mobile-default-rtdb.firebaseio.com/filiais"
+    private val client = OkHttpClient()
+    private val gson = Gson()
+    private val handler = Handler(Looper.getMainLooper())
 
-        // Função para adicionar uma filial
-        fun adicionarFilial(filial: Filial, callback: (Boolean) -> Unit) {
-            val jsonFilial = gson.toJson(filial)
+    // Função para adicionar uma filial
+    fun adicionarFilial(filial: Filial, callback: (Boolean) -> Unit) {
+        val jsonFilial = gson.toJson(filial)
 
-            // Usando MediaType para configurar o corpo da requisição
-            val requestBody = jsonFilial.toRequestBody("application/json".toMediaTypeOrNull())
+        val requestBody = jsonFilial.toRequestBody("application/json".toMediaTypeOrNull())
 
-            val request = Request.Builder()
-                .url("$baseURL.json") // URL para adicionar uma filial
-                .post(requestBody)
-                .build()
+        val request = Request.Builder()
+            .url("$baseURL.json")
+            .post(requestBody)
+            .build()
 
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                handler.post {
+                    callback(false)
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
                     handler.post {
-                        callback(false) // Falhou
+                        callback(true)
+                    }
+                } else {
+                    handler.post {
+                        callback(false)
                     }
                 }
-
-                override fun onResponse(call: Call, response: Response) {
-                    if (response.isSuccessful) {
-                        handler.post {
-                            callback(true) // Sucesso
-                        }
-                    } else {
-                        handler.post {
-                            callback(false) // Falhou
-                        }
-                    }
-                }
-            })
-        }
-
+            }
+        })
+    }
 
     // Função para listar as filiais do Firebase
     fun listarFiliais(callback: (List<Filial>) -> Unit) {
@@ -71,8 +69,9 @@ class FilialViewModel : ViewModel() {
                     val jsonResponse = response.body?.string()
                     val filiaisMap = gson.fromJson(jsonResponse, Map::class.java)
 
-                    filiaisMap?.forEach { (_, value) ->
+                    filiaisMap?.forEach { (key, value) ->
                         val filial = gson.fromJson(gson.toJson(value), Filial::class.java)
+                        filial.id = key.toString()
                         filiais.add(filial)
                     }
 
@@ -91,8 +90,6 @@ class FilialViewModel : ViewModel() {
     // Função para atualizar uma filial
     fun atualizarFilial(id: String, filial: Filial, callback: (Boolean) -> Unit) {
         val jsonFilial = gson.toJson(filial)
-
-        // Usando MediaType.Companion.parse() em vez de get()
         val requestBody = jsonFilial.toRequestBody("application/json".toMediaTypeOrNull())
 
         val request = Request.Builder()
@@ -149,5 +146,3 @@ class FilialViewModel : ViewModel() {
         })
     }
 }
-
-

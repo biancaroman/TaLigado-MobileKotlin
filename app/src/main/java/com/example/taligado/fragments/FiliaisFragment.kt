@@ -13,7 +13,7 @@ import com.example.taligado.R
 import com.example.taligado.activity.dialogs.AddFilialDialogFragment
 import com.example.taligado.adapters.FilialAdapter
 import com.example.taligado.model.Filial
-import com.example.taligado.viewmodel.FilialViewModel
+import com.example.taligado.viewModel.FilialViewModel
 
 class FiliaisFragment : Fragment(R.layout.fragment_filiais) {
 
@@ -29,13 +29,11 @@ class FiliaisFragment : Fragment(R.layout.fragment_filiais) {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_filiais, container, false)
 
-        // Inicializa o ViewModel
         filialViewModel = ViewModelProvider(this).get(FilialViewModel::class.java)
 
         recyclerFiliais = view.findViewById(R.id.recyclerFiliais)
         recyclerFiliais.layoutManager = LinearLayoutManager(requireContext())
 
-        // Obter a lista de filiais
         filialViewModel.listarFiliais { filiaisList ->
             filiais = filiaisList
             filialAdapter = FilialAdapter(filiais)
@@ -44,9 +42,8 @@ class FiliaisFragment : Fragment(R.layout.fragment_filiais) {
 
         btnAddFilial = view.findViewById(R.id.btnAddFilial)
         btnAddFilial.setOnClickListener {
-            // Abrir o dialog de adicionar filial
+
             AddFilialDialogFragment { novaFilial ->
-                // Adicionando a filial ao Firebase e atualizando a lista
                 filialViewModel.adicionarFilial(novaFilial) { sucesso ->
                     if (sucesso) {
                         filialViewModel.listarFiliais { filiaisList ->
