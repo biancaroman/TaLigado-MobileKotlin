@@ -5,3 +5,5 @@ data class Filial(
     val nome: String,
     val imagemUrl: String,
     val endereco: String,
+    val descricao : String
+)

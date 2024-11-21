@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Voltar"
+            android:contentDescription="@string/voltar"
             android:padding="8dp"
             android:src="@drawable/ic_back" />
 
@@ -29,7 +29,7 @@
             android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Entrar"
+            android:text="@string/entrar"
             android:textColor="@android:color/black"
             android:textSize="24sp" />
     </LinearLayout>
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
-        android:hint="E-mail ou Nome de Usuário"
+        android:hint="@string/e_mail_ou_nome"
         android:inputType="textEmailAddress"
         android:padding="12dp" />
 
@@ -51,7 +51,7 @@
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:hint="Senha"
+        android:hint="@string/senha"
         android:inputType="textPassword"
         android:padding="12dp"
         android:layout_marginTop="16dp" />
@@ -61,7 +61,7 @@
         android:id="@+id/txtEsqueceuSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Esqueceu senha?"
+        android:text="@string/esqueceu_senha"
         android:textColor="@color/splash_background_color"
         android:layout_marginTop="36dp"
         android:layout_gravity="start" />
@@ -71,7 +71,7 @@
         android:id="@+id/btnEntrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrar"
+        android:text="@string/entrar"
         android:layout_marginTop="32dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/black" />
@@ -79,7 +79,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eu aceito os Termos e Política de Privacidade"
+        android:text="@string/aceito_os_termos"
 
         android:textSize="12sp"
         android:layout_marginTop="15dp"

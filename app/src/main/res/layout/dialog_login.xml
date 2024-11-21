@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
 
-
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnNovo"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:text="Novo"
+            android:text="@string/novo"
             android:textColor="@color/darkgray"
             android:textStyle="bold"
             android:layout_weight="1"
@@ -24,14 +26,15 @@
 
         <Button
             android:id="@+id/btnRetornando"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:text="Retornando"
+            android:text="@string/retornando"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_weight="1"
-            android:padding="30dp"/>
+            android:padding="30dp" />
     </LinearLayout>
 
 
@@ -39,28 +42,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bem-vindo de volta!"
+        android:text="@string/bem_vindo_de_volta"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginStart="40dp"/>
+        android:layout_marginStart="40dp" />
 
     <!-- Subtitulo do Modal -->
     <TextView
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:text="Entre para acessar sua experiência personalizada
-do TáLigado"
+        android:text="@string/subtitulo_login"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:layout_marginStart="40dp"/>
+        android:layout_marginStart="40dp" />
 
 
     <TextView
         android:layout_width="347dp"
         android:layout_height="38dp"
-        android:text="Entrar com Apple"
-        android:drawableStart="@drawable/ic_apple"
+        android:text="@string/entrar_com_apple"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_background"
@@ -71,13 +72,12 @@ do TáLigado"
         android:padding="10dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onLinkClick" />
+        app:drawableStartCompat="@drawable/ic_apple" />
 
     <TextView
         android:layout_width="347dp"
         android:layout_height="38dp"
-        android:text="Entrar com Google"
-        android:drawableStart="@drawable/ic_google"
+        android:text="@string/entrar_com_google"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/rounded_background"
@@ -87,13 +87,12 @@ do TáLigado"
         android:padding="10dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onLinkClick" />
+        app:drawableStartCompat="@drawable/ic_google" />
 
     <TextView
         android:layout_width="347dp"
         android:layout_height="38dp"
-        android:text="Entrar com celular"
-        android:drawableStart="@drawable/ic_phone"
+        android:text="@string/entrar_com_celular"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/rounded_background"
@@ -103,14 +102,13 @@ do TáLigado"
         android:padding="10dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onLinkClick" />
+        app:drawableStartCompat="@drawable/ic_phone" />
 
     <TextView
         android:id="@+id/txtLoginEmail"
         android:layout_width="347dp"
         android:layout_height="38dp"
-        android:text="Entrar com e-mail"
-        android:drawableStart="@drawable/ic_mail"
+        android:text="@string/entrar_com_e_mail"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/rounded_background"
@@ -120,12 +118,12 @@ do TáLigado"
         android:padding="10dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onLinkClick" />
+        app:drawableStartCompat="@drawable/ic_mail" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ao se cadastrar, você concorda com os Termos de Uso e Política de Privacidade do TáLigado"
+        android:text="@string/termos_privacidade"
         android:textAlignment="center"
         android:textSize="12sp"
         android:layout_margin="30dp"/>

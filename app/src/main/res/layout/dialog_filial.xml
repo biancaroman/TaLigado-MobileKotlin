@@ -71,4 +71,12 @@
             android:text="Remover Filial"
             android:textColor="@color/black" />
 
-        <!-- BotÃ
+        <!-- BotÃ£o de Ver Detalhes -->
+        <Button
+            android:id="@+id/btnVerDetalhesFilial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver Detalhes"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</LinearLayout>
