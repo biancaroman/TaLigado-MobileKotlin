@@ -30,13 +30,12 @@ class LoginDialog(private val context: Context) {
 
         val btnNovo = dialog.findViewById<Button>(R.id.btnNovo)
         val txtLoginEmail = dialog.findViewById<TextView>(R.id.txtLoginEmail)
-        // Evento do botão "Novo" (vai para a página de cadastro)
+
         btnNovo.setOnClickListener {
-            CadastroDialog(context).show() // Abre o novo diálogo de cadastro
+            CadastroDialog(context).show()
             dialog.dismiss()
         }
 
-        // Evento do link "Entrar com e-mail" (vai para a página de login por e-mail)
         txtLoginEmail.setOnClickListener {
             val intent = Intent(context, LoginActivity::class.java)
             context.startActivity(intent)

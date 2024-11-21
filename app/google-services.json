@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "993147221056",
+    "firebase_url": "https://taligado-mobile-default-rtdb.firebaseio.com",
+    "project_id": "taligado-mobile",
+    "storage_bucket": "taligado-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993147221056:android:8da1e9fef882fc3607dba5",
+        "android_client_info": {
+          "package_name": "com.example.taligado"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnkvFBEMp9iPAjZm9OSAk4CKEO_7iZDN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
