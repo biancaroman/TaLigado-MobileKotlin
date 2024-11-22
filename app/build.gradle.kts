@@ -34,6 +34,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    configurations.all {
+        resolutionStrategy.force("androidx.core:core-ktx:1.10.1")
+    }
+
 }
 
 dependencies {
@@ -55,6 +60,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation ("com.google.android.gms:play-services-maps:18.0.2")
     implementation ("com.github.bumptech.glide:glide:4.13.2")
+    implementation ("androidx.legacy:legacy-support-v4:1.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

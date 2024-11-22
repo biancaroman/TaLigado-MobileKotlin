@@ -82,7 +82,7 @@ class FilialAdapter(private var filiais: List<Filial>) :
                 if (sucesso) {
                     Log.d("FilialAdapter", "Filial removida com sucesso")
                     Toast.makeText(context, "Filial removida com sucesso", Toast.LENGTH_SHORT).show()
-                    // Atualizar a lista no adapter
+
                     val index = filiais.indexOf(filial)
                     filiais = filiais.filterIndexed { idx, _ -> idx != index }
                     notifyItemRemoved(index)

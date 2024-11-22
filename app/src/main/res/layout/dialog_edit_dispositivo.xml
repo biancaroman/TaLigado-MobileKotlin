@@ -1,0 +1,42 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/edtNomeDispositivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do Dispositivo" />
+
+    <EditText
+        android:id="@+id/edtStatusDispositivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Status" />
+
+    <EditText
+        android:id="@+id/edtConsumoEnergiaDispositivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Consumo de Energia" />
+
+    <ImageView
+        android:id="@+id/imageViewDispositivo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <Button
+        android:id="@+id/btnEscolherImagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Escolher Imagem" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar" />
+</LinearLayout>
