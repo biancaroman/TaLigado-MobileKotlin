@@ -32,11 +32,13 @@
         android:id="@+id/btnEscolherImagem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:text="Escolher Imagem" />
 
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:text="Salvar" />
 </LinearLayout>
