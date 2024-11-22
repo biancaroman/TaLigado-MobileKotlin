@@ -157,8 +157,7 @@ O aplicativo também gerencia informações sobre as filiais associadas ao usuá
 ## Link para o prototipo feito no figma
 `https://www.figma.com/design/Fe7uJ657IAOeluGL6P4v0N/Untitled?node-id=0-1&t=BQliNA6f5jo3Upfl-1`
 
-## Link para o video testando o app  
-`https://youtu.be/lsjXs8t7oc0`
+## [Link para o video testando o app] (https://youtu.be/lsjXs8t7oc0)
 
 ## 🫂 Integrantes
 
